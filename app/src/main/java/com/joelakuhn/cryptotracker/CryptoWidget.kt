@@ -34,9 +34,7 @@ class CryptoWidget : AppWidgetProvider() {
                 } else if (doubleAmount == null) {
 
                 } else {
-                    var json = CryptoAPI()
-                            .execute("https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=" + prefCurrency)
-                            .get()
+                    var json = CryptoAPI().execute(prefCurrency).get()
                     if (json != null) {
                         val data = parse_json(json)
                         val fromUsd = data?.getDouble(prefCurrency)
